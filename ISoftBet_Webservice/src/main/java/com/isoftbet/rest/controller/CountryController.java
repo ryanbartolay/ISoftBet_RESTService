@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.isoftbet.model.Country;
+import com.isoftbet.rest.model.RestResponse;
 import com.isoftbet.service.CountryServiceImpl;
 
 @RestController
@@ -28,7 +29,7 @@ public class CountryController {
 		this.countryService = countryService;
 	}
 
-	@RequestMapping(value = "/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)  
+	@RequestMapping(value = "/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Country>> getCountries() {
 		List<Country> countries = countryService.retrieveAll();
 		
@@ -65,25 +66,25 @@ public class CountryController {
 		Country search = countryService.retrieve(id);
 		
 		if(search == null) {
-			return new ResponseEntity<Country>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
 		country.setId(search.getId());
 		countryService.update(country);
 		
-		return new ResponseEntity<Country>(country, HttpStatus.OK);
+		return new ResponseEntity<>(country, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/country/{id}", method = RequestMethod.DELETE)  
-	public ResponseEntity<Country> deleteCountry(@PathVariable("id") long id) {
+	public ResponseEntity<RestResponse> deleteCountry(@PathVariable("id") long id) {
 		
 		Country search = countryService.retrieve(id);
 		
 		if(search == null) {
-			return new ResponseEntity<Country>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<RestResponse>(HttpStatus.NOT_FOUND);
 		}
 		
 		countryService.delete(search);
-		return new ResponseEntity<Country>(HttpStatus.OK);
+		return new ResponseEntity<RestResponse>(HttpStatus.OK);
 	}
 }  

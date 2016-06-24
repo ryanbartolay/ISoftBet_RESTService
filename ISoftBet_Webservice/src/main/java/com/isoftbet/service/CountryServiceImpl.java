@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.isoftbet.crud.model.CRUDService;
 import com.isoftbet.model.Country;
+import com.isoftbet.rest.model.RestResponse;
 
 public class CountryServiceImpl implements CRUDService<Country> {
 

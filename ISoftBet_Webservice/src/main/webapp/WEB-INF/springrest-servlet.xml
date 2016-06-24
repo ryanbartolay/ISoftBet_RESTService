@@ -10,4 +10,6 @@
 	<context:component-scan base-package="com.isoftbet.rest.controller" />	
 
 	<import resource="country-servlet.xml"/>
+	
+	<import resource="util.xml"/>
 </beans>

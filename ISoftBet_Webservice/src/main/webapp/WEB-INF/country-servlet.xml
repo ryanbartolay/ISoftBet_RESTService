@@ -10,6 +10,6 @@
 	
 	<bean id="countryService" class="com.isoftbet.service.CountryServiceImpl"/>
 	
-	<bean id="restResponsed" class="com.isoftbet.rest.model.ErrorResponse" />	
+	<bean id="restResponsed" class="com.isoftbet.rest.model.ErrorResponse" />
 
 </beans>
