@@ -1,5 +1,6 @@
 package com.isoftbet.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.isoftbet.crud.model.CRUDService;
@@ -10,7 +11,17 @@ public class CountryServiceImpl implements CRUDService<Country> {
 	@Override
 	public List<Country> retrieveAll() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Country> listOfCountries = new ArrayList<>();
+		
+		Country indiaCountry=new Country(1, "India");  
+		Country chinaCountry=new Country(4, "China");  
+		Country nepalCountry=new Country(3, "Nepal");  
+		Country bhutanCountry=new Country(2, "Bhutan");
+		listOfCountries .add(indiaCountry);  
+		listOfCountries.add(chinaCountry);  
+		listOfCountries.add(nepalCountry);  
+		listOfCountries.add(bhutanCountry);  
+		return listOfCountries;
 	}
 
 	@Override
