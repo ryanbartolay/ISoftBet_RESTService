@@ -8,8 +8,6 @@
 		<property name="countryService" ref="countryService" />
 	</bean>
 	
-	<bean id="countryService" class="com.isoftbet.service.CountryServiceImpl"/>
-	
-	<bean id="restResponsed" class="com.isoftbet.rest.model.ErrorResponse" />
+	<bean id="countryService" class="com.isoftbet.service.CountryServiceImpl"/>	
 
 </beans>
