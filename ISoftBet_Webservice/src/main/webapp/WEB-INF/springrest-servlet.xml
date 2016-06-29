@@ -7,9 +7,10 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<mvc:annotation-driven />
-	<context:component-scan base-package="com.isoftbet.rest.controller" />	
+	<context:component-scan base-package="com.isoftbet" />	
 
 	<import resource="country-servlet.xml"/>
 	
-	<import resource="util.xml"/>
+	<!-- database -->
+	<import resource="datasource.xml"/>
 </beans>
