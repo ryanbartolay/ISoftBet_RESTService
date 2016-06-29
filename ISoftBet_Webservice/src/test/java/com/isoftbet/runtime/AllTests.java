@@ -5,10 +5,9 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import com.isoftbet.test.rest.controller.CountryControllerTest;
-import com.isoftbet.test.util.ISoftPropertiesTest;
 
 @RunWith(Suite.class)
-@SuiteClasses({CountryControllerTest.class, ISoftPropertiesTest.class})
+@SuiteClasses({CountryControllerTest.class})
 public class AllTests {
 
 }
