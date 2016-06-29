@@ -1,4 +1,4 @@
-package com.isoftbet.model;
+package com.isoftbet.util.model;
 
 public enum ErrorType {
 	GENERAL("General"),

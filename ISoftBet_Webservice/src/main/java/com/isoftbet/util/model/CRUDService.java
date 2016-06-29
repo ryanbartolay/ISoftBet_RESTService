@@ -1,4 +1,4 @@
-package com.isoftbet.crud.model;
+package com.isoftbet.util.model;
 
 import java.util.List;
 

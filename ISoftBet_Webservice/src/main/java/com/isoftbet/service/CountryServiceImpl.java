@@ -3,9 +3,8 @@ package com.isoftbet.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.isoftbet.crud.model.CRUDService;
 import com.isoftbet.model.Country;
-import com.isoftbet.rest.model.RestResponse;
+import com.isoftbet.util.model.CRUDService;
 
 public class CountryServiceImpl implements CRUDService<Country> {
 
