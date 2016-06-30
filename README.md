@@ -4,8 +4,8 @@ Main webservice on handling isoftBet request on spring 4 mvc, postgresql jdbc
 ##Components
 
 ###Logging (Logback + SLF4J)
-http://www.mkyong.com/spring-mvc/spring-mvc-logback-slf4j-example/
-http://www.mkyong.com/logging/logback-xml-example/
+  http://www.mkyong.com/spring-mvc/spring-mvc-logback-slf4j-example/
+  http://www.mkyong.com/logging/logback-xml-example/
 
 
 ###JDBC Template for Spring
