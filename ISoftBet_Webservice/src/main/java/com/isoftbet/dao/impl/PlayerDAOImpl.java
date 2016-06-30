@@ -24,15 +24,15 @@ public class PlayerDAOImpl extends AbstractDAO implements PlayerDAO {
 	 * Generic mapper for player entity
 	 */
 	private static final class PlayerMapper implements RowMapper<Player> {
-	    public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
-	    	Player player = new Player();
+		public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
+			Player player = new Player();
 			player.setId(rs.getInt("id"));
 			player.setPlayerId(rs.getString("playerid"));
 			player.setName(rs.getString("name"));
 			return player;
-	    }
+		}
 	}
-	
+
 	@Override
 	public List<Player> findAll() {
 		return jdbcTemplate.query("select * from player", new PlayerMapper());
@@ -40,12 +40,16 @@ public class PlayerDAOImpl extends AbstractDAO implements PlayerDAO {
 
 	@Override
 	public Player find(long id) {
-		return jdbcTemplate.queryForObject("select * from player where id = ?", new Object[]{id}, new PlayerMapper());
+		return this.find(new Player(id));
 	}
 
 	@Override
-	public Player find(Player t) {
-		// TODO Auto-generated method stub
+	public Player find(Player player) {
+		try {
+			return jdbcTemplate.queryForObject("select * from player where id = ?", new Object[]{player.getId()}, new PlayerMapper());
+		} catch(Exception e) {
+
+		}
 		return null;
 	}
 

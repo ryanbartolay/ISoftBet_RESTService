@@ -11,6 +11,13 @@ public class Player {
 	private Timestamp updated;
 	private boolean deleted;
 	
+	public Player() {
+		super();
+	}
+	public Player(long id) {
+		super();
+		this.id = id;
+	}
 	public long getId() {
 		return id;
 	}

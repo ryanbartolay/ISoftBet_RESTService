@@ -1,7 +1,6 @@
 package com.isoftbet.test.dao;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -34,12 +33,21 @@ public class PlayerDaoTest implements DAObjectTest {
 	public void testFindSuccess() {
 		assertTrue(playerDao.find(1) instanceof Player);
 		assertNotNull(playerDao.find(1));
+		
+		assertTrue(playerDao.find(new Player(1)) instanceof Player);
+		assertNotNull(playerDao.find(new Player(1)));
+		
 	}
 
 	@Test
-	public void testFindFail() {
-		// TODO Auto-generated method stub
+	public void testFindFail() {		
+		assertFalse(playerDao.find(0) instanceof Player);
+		assertNull(playerDao.find(0));
 		
+		assertFalse(playerDao.find(new Player(0)) instanceof Player);
+		assertNull(playerDao.find(new Player(0)));
+		
+		assertNull(playerDao.find(null));
 	}
 
 	@Test
