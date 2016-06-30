@@ -6,10 +6,13 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.isoftbet.dao.impl.PlayerDAOImpl;
 import com.isoftbet.model.Player;
 import com.isoftbet.test.model.DAObjectTest;
 import com.isoftbet.util.model.DAObject;
@@ -18,11 +21,15 @@ import com.isoftbet.util.model.DAObject;
 @ContextConfiguration("classpath:springrest-servlet.xml")
 public class PlayerDaoTest implements DAObjectTest {
 	
+	private static final Logger logger = LoggerFactory.getLogger(PlayerDAOImpl.class);
+	
 	@Autowired
 	private DAObject<Player> playerDao;
 
 	@Test
 	public void testFindAll() {
+		
+		logger.info("Entering application.");
 		List<Player> players = null;
 		assertTrue((players = playerDao.findAll()) instanceof List);
 		assertNotNull(players);
@@ -36,10 +43,9 @@ public class PlayerDaoTest implements DAObjectTest {
 		
 		assertTrue(playerDao.find(new Player(1)) instanceof Player);
 		assertNotNull(playerDao.find(new Player(1)));
-		
 	}
 
-	
+	@Test
 	public void testFindFail() {		
 		assertFalse(playerDao.find(0) instanceof Player);
 		assertNull(playerDao.find(0));

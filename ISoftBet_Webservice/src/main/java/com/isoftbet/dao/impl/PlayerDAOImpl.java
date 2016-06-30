@@ -52,9 +52,7 @@ public class PlayerDAOImpl extends AbstractDAO implements PlayerDAO {
 		try {
 			return jdbcTemplate.queryForObject("select * from player where id = ?", new Object[]{player.getId()}, new PlayerMapper());
 		} catch(Exception e) {
-			//logger.debug("welcome() is executed, value {}", "mkyong");
-			
-			logger.error("This is Error message", new Exception("Testing"));
+			logger.error("This is Error message", e);
 		}
 		return null;
 	}
