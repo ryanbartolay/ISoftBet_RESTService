@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 public class Player {
 	private long id;
 	private Currency currency;
+	private String name;
 	private String playerId;
 	private double balance;
 	private Timestamp updated;
@@ -21,6 +22,12 @@ public class Player {
 	}
 	public void setCurrency(Currency currency) {
 		this.currency = currency;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getPlayerId() {
 		return playerId;

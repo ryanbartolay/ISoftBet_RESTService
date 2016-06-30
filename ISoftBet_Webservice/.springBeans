@@ -7,7 +7,8 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/webapp/WEB-INF/datasource.xml</config>
+		<config>src/main/resources/dao.xml</config>
+		<config>src/main/resources/datasource.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

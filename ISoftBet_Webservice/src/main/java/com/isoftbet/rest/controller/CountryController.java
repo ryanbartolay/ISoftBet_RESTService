@@ -15,7 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.isoftbet.model.Country;
 import com.isoftbet.rest.model.RestResponse;
-import com.isoftbet.service.CountryServiceImpl;
+import com.isoftbet.service.impl.CountryServiceImpl;
 
 @RestController
 public class CountryController {  

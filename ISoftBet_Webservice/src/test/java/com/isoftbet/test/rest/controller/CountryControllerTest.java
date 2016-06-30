@@ -9,10 +9,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.isoftbet.model.Country;
 import com.isoftbet.test.model.RESTWebserviceTest;
+import com.isoftbet.test.util.AppTestCase;
 
-import junit.framework.TestCase;
-
-public class CountryControllerTest extends TestCase implements RESTWebserviceTest {
+public class CountryControllerTest extends AppTestCase implements RESTWebserviceTest {
 
 	private RestTemplate restTemplate;
 	private String REST_SERVICE_URI = "http://localhost:8081/testing";

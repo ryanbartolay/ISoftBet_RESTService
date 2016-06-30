@@ -1,4 +1,4 @@
-package com.isoftbet.service;
+package com.isoftbet.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;

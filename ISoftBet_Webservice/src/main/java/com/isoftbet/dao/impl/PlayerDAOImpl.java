@@ -1,14 +1,16 @@
 package com.isoftbet.dao.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
-
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.isoftbet.dao.PlayerDAO;
+import com.isoftbet.model.Currency;
 import com.isoftbet.model.Player;
 
 /**
@@ -20,34 +22,29 @@ import com.isoftbet.model.Player;
 @Repository
 public class PlayerDAOImpl implements PlayerDAO {
 
-	/** 
-	 * Any DAO or repository implementation will need to access to a persistence resource, 
-	 * depending on the persistence technology used;
-	 * 	for example,
-	 * 		a JDBC-based repository will need access to a JDBC DataSource;
-	 * 		a JPA-based repository will need access to an EntityManager. 
-	 * 		a classic Hibernate APIs than you can inject the SessionFactory:
-	 **/
-	@Autowired
-	private DataSource dataSource;
-	
-	public DataSource getDataSource() {
-		return dataSource;
-	}
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
+	private JdbcTemplate jdbcTemplate;
+
+	public JdbcTemplate getJdbcTemplate() {
+		return jdbcTemplate;
 	}
 
-	
-	@Autowired
-	public PlayerDAOImpl(JdbcTemplate jdbcTemplate) {
-		
-		this.dataSource = dataSource;
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
+
 	@Override
 	public List<Player> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.jdbcTemplate.query(
+				"select first_name, last_name from t_actor",
+				new RowMapper<Player>() {
+					public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
+						Player player = new Player();
+						player.setId(rs.getInt("id"));
+						player.setPlayerId(rs.getString("playerid"));
+						player.setName(rs.getString("name"));
+						return player;
+					}
+				});
 	}
 
 	@Override
@@ -65,18 +62,18 @@ public class PlayerDAOImpl implements PlayerDAO {
 	@Override
 	public void add(Player t) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void set(Player t) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void delete(Player t) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
