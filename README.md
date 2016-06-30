@@ -14,4 +14,4 @@ http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.h
 
 
 ###JUnit Test and Properties initialization
-https://examples.javacodegeeks.com/enterprise-java/spring/load-environment-configurations-and-properties-with-spring-example/
+  https://examples.javacodegeeks.com/enterprise-java/spring/load-environment-configurations-and-properties-with-spring-example/
