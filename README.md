@@ -5,6 +5,7 @@ Components used
 
 Logging (Logback + SLF4J)
 http://www.mkyong.com/spring-mvc/spring-mvc-logback-slf4j-example/
+http://www.mkyong.com/logging/logback-xml-example/
 
 
 JDBC Template for Spring
