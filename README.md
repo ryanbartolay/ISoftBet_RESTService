@@ -1,4 +1,4 @@
-# ISoftBet_RESTService
+# ISoftBet RESTService
 Main webservice on handling isoftBet request on spring 4 mvc, postgresql jdbc
 
 ##Components
@@ -9,9 +9,9 @@ Main webservice on handling isoftBet request on spring 4 mvc, postgresql jdbc
 
 
 ###JDBC Template for Spring
-https://spring.io/guides/gs/relational-data-access/
-http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.html
+- [Spring Data Access](https://spring.io/guides/gs/relational-data-access/)
+- [Spring JDBC](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/jdbc.html)
 
 
 ###JUnit Test and Properties initialization
-  https://examples.javacodegeeks.com/enterprise-java/spring/load-environment-configurations-and-properties-with-spring-example/
+- [Spring Environment Properties](https://examples.javacodegeeks.com/enterprise-java/spring/load-environment-configurations-and-properties-with-spring-example/)
