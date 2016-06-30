@@ -1,5 +1,7 @@
 package com.isoftbet.test.rest.controller;
 
+import static org.junit.Assert.*;
+
 import java.net.URI;
 import java.util.List;
 
@@ -9,9 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.isoftbet.model.Country;
 import com.isoftbet.test.model.RESTWebserviceTest;
-import com.isoftbet.test.util.AppTestCase;
 
-public class CountryControllerTest extends AppTestCase implements RESTWebserviceTest {
+public class CountryControllerTest implements RESTWebserviceTest {
 
 	private RestTemplate restTemplate;
 	private String REST_SERVICE_URI = "http://localhost:8081/testing";

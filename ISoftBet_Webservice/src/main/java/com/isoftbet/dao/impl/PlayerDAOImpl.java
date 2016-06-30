@@ -4,13 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.isoftbet.dao.AbstractDAO;
 import com.isoftbet.dao.PlayerDAO;
-import com.isoftbet.model.Currency;
 import com.isoftbet.model.Player;
 
 /**
@@ -20,37 +19,28 @@ import com.isoftbet.model.Player;
  * entries for them.
  **/
 @Repository
-public class PlayerDAOImpl implements PlayerDAO {
-
-	private JdbcTemplate jdbcTemplate;
-
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
+public class PlayerDAOImpl extends AbstractDAO implements PlayerDAO {
+	/*
+	 * Generic mapper for player entity
+	 */
+	private static final class PlayerMapper implements RowMapper<Player> {
+	    public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
+	    	Player player = new Player();
+			player.setId(rs.getInt("id"));
+			player.setPlayerId(rs.getString("playerid"));
+			player.setName(rs.getString("name"));
+			return player;
+	    }
 	}
-
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
-
+	
 	@Override
 	public List<Player> findAll() {
-		return this.jdbcTemplate.query(
-				"select first_name, last_name from t_actor",
-				new RowMapper<Player>() {
-					public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
-						Player player = new Player();
-						player.setId(rs.getInt("id"));
-						player.setPlayerId(rs.getString("playerid"));
-						player.setName(rs.getString("name"));
-						return player;
-					}
-				});
+		return jdbcTemplate.query("select * from player", new PlayerMapper());
 	}
 
 	@Override
 	public Player find(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.queryForObject("select * from player where id = ?", new Object[]{id}, new PlayerMapper());
 	}
 
 	@Override

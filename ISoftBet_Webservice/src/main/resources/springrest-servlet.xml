@@ -12,8 +12,8 @@
 	<!-- database -->
 	<import resource="datasource.xml"/>
 
-	<!-- <import resource="dao.xml"/>
-	<import resource="country-servlet.xml"/> -->
+	<import resource="dao.xml"/>
+	<import resource="country-servlet.xml"/><!-- to be removed -->
 	
 	
 </beans>

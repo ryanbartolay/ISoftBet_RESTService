@@ -19,6 +19,10 @@ public class AppConfigTest extends TestCase {
 	
 	@Test
 	public void testConfigSuccess() {
-		System.out.println(jdbcConfig.getDriver());
+		assertNotNull(jdbcConfig);
+		assertNotNull(jdbcConfig.getDriver());
+		assertNotNull(jdbcConfig.getUrl());
+		assertNotNull(jdbcConfig.getUsername());
+		assertNotNull(jdbcConfig.getPassword());
 	}
 }

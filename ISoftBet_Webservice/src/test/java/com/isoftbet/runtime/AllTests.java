@@ -6,12 +6,11 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import com.isoftbet.test.config.AppConfigTest;
 import com.isoftbet.test.dao.PlayerDaoTest;
-import com.isoftbet.test.rest.controller.CountryControllerTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	AppConfigTest.class, 
-	CountryControllerTest.class, 
+	//CountryControllerTest.class, 
 	PlayerDaoTest.class})
 public class AllTests {
 	
