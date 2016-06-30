@@ -11,12 +11,16 @@
 	<properties>
 		<spring.version>4.3.0.RELEASE</spring.version>
 		<jdk.version>1.7</jdk.version>
+		<jcl.slf4j.version>1.7.21</jcl.slf4j.version>
+		<logback.version>1.1.7</logback.version>
+		<junit.version>4.12</junit.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -25,23 +29,35 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+
+		<!-- Spring dependencies -->
+		<!-- exclude commons-logging -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- Spring - JDBC Dependency -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- Spring Unit Testing Dependency -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -49,7 +65,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-
+		<!-- JDBC Dependency -->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -57,10 +73,26 @@
 			<version>5.1.38</version>
 		</dependency>
 
+		<!-- REST Request dependencies -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.7.4</version>
+		</dependency>
+
+		<!-- Logging Dependencies -->
+		<!-- Bridge logging from JCL to SLF4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${jcl.slf4j.version}</version>
+		</dependency>
+
+		<!-- logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
 		</dependency>
 
 	</dependencies>

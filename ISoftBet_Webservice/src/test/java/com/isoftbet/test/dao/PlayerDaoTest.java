@@ -39,7 +39,7 @@ public class PlayerDaoTest implements DAObjectTest {
 		
 	}
 
-	@Test
+	
 	public void testFindFail() {		
 		assertFalse(playerDao.find(0) instanceof Player);
 		assertNull(playerDao.find(0));

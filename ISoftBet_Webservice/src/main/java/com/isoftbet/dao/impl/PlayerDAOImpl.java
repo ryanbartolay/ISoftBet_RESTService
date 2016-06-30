@@ -4,7 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +21,9 @@ import com.isoftbet.model.Player;
  **/
 @Repository
 public class PlayerDAOImpl extends AbstractDAO implements PlayerDAO {
+	
+	private static final Logger logger = LoggerFactory.getLogger(PlayerDAOImpl.class);
+	
 	/*
 	 * Generic mapper for player entity
 	 */
@@ -48,7 +52,9 @@ public class PlayerDAOImpl extends AbstractDAO implements PlayerDAO {
 		try {
 			return jdbcTemplate.queryForObject("select * from player where id = ?", new Object[]{player.getId()}, new PlayerMapper());
 		} catch(Exception e) {
-
+			//logger.debug("welcome() is executed, value {}", "mkyong");
+			
+			logger.error("This is Error message", new Exception("Testing"));
 		}
 		return null;
 	}
