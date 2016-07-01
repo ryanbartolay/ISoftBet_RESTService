@@ -13,7 +13,7 @@
 	
 	<appender name="FILE-AUDIT"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${DEV_HOME}/debug.log</file>
+		<file>${DEV_HOME}/stdout.log</file>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<Pattern>
 				%d{yyyy-MM-dd HH:mm:ss} - %msg%n
@@ -22,7 +22,7 @@
 
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- rollover daily -->
-			<fileNamePattern>${DEV_HOME}/archived/debug.%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>${DEV_HOME}/archived/stdout.%d{yyyy-MM-dd}.%i.log
                         </fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -34,7 +34,7 @@
 
 	<appender name="FILE-ERROR"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${DEV_HOME}/error.log</file>
+		<file>${DEV_HOME}/stderr.log</file>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<Pattern>
 				%d{yyyy-MM-dd HH:mm:ss} - %msg%n
@@ -43,7 +43,7 @@
 
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- rollover daily -->
-			<fileNamePattern>${DEV_HOME}/archived/error.%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>${DEV_HOME}/archived/stderr.%d{yyyy-MM-dd}.%i.log
                         </fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
 				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

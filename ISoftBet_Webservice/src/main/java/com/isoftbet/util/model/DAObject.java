@@ -6,7 +6,7 @@ public interface DAObject<T> {
 	List<T> findAll();
 	T find(long id);
 	T find(T t);
-	void add(T t);
-	void set(T t);
-	void delete(T t);
+	T add(final T t);
+	void set(final T t);
+	void delete(final T t);
 }

@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.isoftbet.dao.impl.PlayerDAOImpl;
 import com.isoftbet.model.Player;
 import com.isoftbet.test.model.DAObjectTest;
+import com.isoftbet.util.CommonUtils;
 import com.isoftbet.util.model.DAObject;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -28,8 +29,6 @@ public class PlayerDaoTest implements DAObjectTest {
 
 	@Test
 	public void testFindAll() {
-		
-		logger.info("Entering application.");
 		List<Player> players = null;
 		assertTrue((players = playerDao.findAll()) instanceof List);
 		assertNotNull(players);
@@ -58,7 +57,12 @@ public class PlayerDaoTest implements DAObjectTest {
 
 	@Test
 	public void testAddSuccess() {
-		// TODO Auto-generated method stub
+		Player player = new Player();
+		player.setBalance(10.50);
+		player.setName("Lorem Ipsum");
+		player.setPlayerId(CommonUtils.generateAlphaNumericString());
+		
+		assertNotNull(playerDao.add(player));
 		
 	}
 
