@@ -21,14 +21,18 @@ public class AuthUtils {
 	 * @return ie. 514acab8e3ff3f6b7562e8b6ef44141d21e90d7aa19002a38314ecc9fbce2553
 	 */
 	public static String getHash(String json_message) {
-		try {
-		SecretKeySpec keySpec = new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");
-			Mac mac = Mac.getInstance("HmacSHA256");
-			mac.init(keySpec);
-			byte[] rawHmac = mac.doFinal(json_message.getBytes());
-			return bytesToHex(rawHmac);
-		} catch (NoSuchAlgorithmException | InvalidKeyException e) {
-			logger.error(e.getMessage(), e);
+		if(CommonUtils.isJSONValid(json_message)) {
+			logger.error("Invalid JSON Message", json_message);			
+		} else {
+			try {
+				SecretKeySpec keySpec = new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");
+				Mac mac = Mac.getInstance("HmacSHA256");
+				mac.init(keySpec);
+				byte[] rawHmac = mac.doFinal(json_message.getBytes());
+				return bytesToHex(rawHmac);
+			} catch (NoSuchAlgorithmException | InvalidKeyException e) {
+				logger.error(e.getMessage(), e);
+			}
 		}
 		return null;
 	}

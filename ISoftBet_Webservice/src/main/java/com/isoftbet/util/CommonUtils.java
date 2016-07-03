@@ -1,13 +1,33 @@
 package com.isoftbet.util;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Random;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author RyanKristoffer
  * @since 01072016
  */
 public class CommonUtils {
+	
+	private static final Logger logger = LoggerFactory.getLogger(CommonUtils.class);
+	
+	// returns whether the given string is in valid format
+	public static boolean isJSONValid(String jsonString ) {
+		try {
+			final ObjectMapper mapper = new ObjectMapper();
+			mapper.readTree(jsonString);
+			return true;
+		} catch (IOException e) {
+			logger.error(e.getMessage(),e);
+			return false;
+		}
+	}
 
 	// returns timestamp that is compatible with datatype timestamp
 	public static final Timestamp getCurrentTimestamp() {
